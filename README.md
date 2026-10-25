@@ -65,4 +65,21 @@ The site currently uses in-page section links, not routed pages, so no SPA
 404 fallback is needed. Review the resume and public contact details before
 enabling deployment.
 
+### Troubleshooting: Get Pages site failed / Not Found
+
+This error from `actions/configure-pages` means the Pages site is not configured
+or is inaccessible to the workflow. With repository administrator access:
+
+1. Open <https://github.com/TheArjunSharma-ai/arjun-sharma-portfolio/settings/pages>.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Return to the failed Actions run and choose **Re-run failed jobs**.
+
+This settings-only fix does not require a new commit. If Pages settings are
+unavailable, ask a repository administrator to enable Pages and check applicable
+organization policies.
+
+Do not add `enablement: true` alone: the configure-pages action requires a token
+other than the default `GITHUB_TOKEN` for automatic enablement. Manual setup
+avoids creating or storing an additional privileged deployment secret.
+
 The app remains Angular as originally requested; the older Razor Pages preference in the content brief does not change the implementation stack.
